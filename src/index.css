@@ -1,0 +1,94 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Inter', 'Aptos', Arial, 'Helvetica Neue', Helvetica, sans-serif;
+
+  --color-surface: #f0f1fc;
+  --color-surface-alt: #ffffff;
+  --color-brand: #2f55e7;
+  --color-brand-dark: #234abf;
+  --color-ink: #0a0a0a;
+  --color-muted: #0a0a0a;
+  --color-accent-light: #dde2fa;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    overflow-y: scroll;
+    scrollbar-gutter: stable;
+  }
+
+  body {
+    margin: 0;
+    background-color: var(--color-surface);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-weight: 500;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-sans);
+    color: var(--color-brand);
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    text-align: left;
+  }
+
+  p {
+    line-height: 1.7;
+  }
+
+  a {
+    color: inherit;
+  }
+
+  button,
+  a,
+  [role='tab'],
+  [role='button'] {
+    cursor: pointer;
+  }
+
+  button:disabled {
+    cursor: not-allowed;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-brand);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer utilities {
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
