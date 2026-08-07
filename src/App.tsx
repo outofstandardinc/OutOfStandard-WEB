@@ -20,7 +20,7 @@ function ActivePanel() {
   // content of every tab (for SEO / social / AI crawlers). Only the active
   // tab is shown; the rest are hidden with `display: none`.
   return (
-    <div id="content-panel" className="pb-24">
+    <div id="content-panel" className={activeTab === 'intro' ? '' : 'pb-24'}>
       <div className={activeTab === 'intro' ? undefined : 'hidden'}>
         <Hero />
       </div>
