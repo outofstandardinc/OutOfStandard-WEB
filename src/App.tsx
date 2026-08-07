@@ -16,13 +16,26 @@ function ActivePanel() {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }, [activeTab])
 
+  // All sections stay mounted so the prerendered HTML contains the full
+  // content of every tab (for SEO / social / AI crawlers). Only the active
+  // tab is shown; the rest are hidden with `display: none`.
   return (
     <div id="content-panel" className="pb-24">
-      {activeTab === 'intro' && <Hero />}
-      {activeTab === 'problem' && <Problem />}
-      {activeTab === 'sources' && <EvidenceSources />}
-      {activeTab === 'impact' && <Impact />}
-      {activeTab === 'contact' && <Contact />}
+      <div className={activeTab === 'intro' ? undefined : 'hidden'}>
+        <Hero />
+      </div>
+      <div className={activeTab === 'problem' ? undefined : 'hidden'}>
+        <Problem />
+      </div>
+      <div className={activeTab === 'sources' ? undefined : 'hidden'}>
+        <EvidenceSources />
+      </div>
+      <div className={activeTab === 'impact' ? undefined : 'hidden'}>
+        <Impact />
+      </div>
+      <div className={activeTab === 'contact' ? undefined : 'hidden'}>
+        <Contact />
+      </div>
     </div>
   )
 }

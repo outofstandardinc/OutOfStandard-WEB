@@ -4,8 +4,6 @@ import { COMPANY_NAME, NAV_LINKS } from '../../config/siteConfig'
 import { MenuIcon, CloseIcon } from '../decor/Icons'
 import { useTab } from '../../context/TabContext'
 
-const DISPLAY_NAME = COMPANY_NAME.replace(', Inc.', '')
-
 type IndicatorRect = {
   left: number
   width: number
@@ -57,11 +55,11 @@ export default function Header() {
             aria-label={`${COMPANY_NAME} — return to intro`}
             className="text-[1.3125rem] font-extrabold tracking-[0.08em] text-brand transition-opacity hover:opacity-80 sm:text-[1.5rem]"
           >
-            {DISPLAY_NAME.toUpperCase()}
+            {COMPANY_NAME.toUpperCase()}
           </button>
 
           <nav
-            className="hidden items-center gap-8 lg:flex"
+            className="relative z-10 hidden items-center gap-8 lg:flex"
             aria-label="Primary"
           >
             {NAV_LINKS.map((link) => {
@@ -103,7 +101,7 @@ export default function Header() {
           {indicator ? (
             <span
               aria-hidden="true"
-              className="pointer-events-none absolute bottom-0 hidden h-[3px] rounded-full bg-brand shadow-[0_6px_10px_-2px_rgba(47,85,231,0.75)] transition-all duration-300 ease-out lg:block"
+              className="pointer-events-none absolute bottom-0 z-10 hidden h-[3px] rounded-full bg-brand shadow-[0_6px_10px_-2px_rgba(47,85,231,0.75)] transition-all duration-300 ease-out lg:block"
               style={{ left: indicator.left, width: indicator.width }}
             />
           ) : null}

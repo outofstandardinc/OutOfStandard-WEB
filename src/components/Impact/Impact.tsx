@@ -1,4 +1,5 @@
 import Container from '../Container'
+import GlassPanel from '../GlassPanel/GlassPanel'
 import InfoCard from '../InfoCard/InfoCard'
 
 const ORG_IMPACTS = [
@@ -36,6 +37,7 @@ export default function Impact() {
   return (
     <section id="impact" className="relative py-24 sm:py-32">
       <Container>
+        <GlassPanel>
         <div className="reveal">
           <h2 className="text-[clamp(1.9rem,3.6vw,2.75rem)] font-extrabold leading-[1.12] text-brand">
             What Our Infrastructure Enables
@@ -66,8 +68,10 @@ export default function Impact() {
             </div>
           </div>
         </div>
+        </GlassPanel>
 
-        <div className="reveal mt-16">
+        <GlassPanel className="mt-8">
+        <div className="reveal">
           <h2 className="text-[clamp(1.9rem,3.6vw,2.75rem)] font-extrabold leading-[1.12] text-brand">
             Long-Term Vision
           </h2>
@@ -84,6 +88,7 @@ export default function Impact() {
             </p>
           </div>
         </div>
+        </GlassPanel>
       </Container>
     </section>
   )

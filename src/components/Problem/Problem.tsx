@@ -1,4 +1,5 @@
 import Container from '../Container'
+import GlassPanel from '../GlassPanel/GlassPanel'
 import { useTab } from '../../context/TabContext'
 
 const SHORTCOMINGS = [
@@ -13,6 +14,7 @@ export default function Problem() {
   return (
     <section id="problem" className="relative py-24 sm:py-32">
       <Container>
+        <GlassPanel>
         <div className="reveal">
           <h2 className="text-[clamp(1.9rem,3.6vw,2.75rem)] font-extrabold leading-[1.12] text-brand">
             A Critical Gap in Address Infrastructure
@@ -116,6 +118,7 @@ export default function Problem() {
             </p>
           </div>
         </div>
+        </GlassPanel>
       </Container>
     </section>
   )

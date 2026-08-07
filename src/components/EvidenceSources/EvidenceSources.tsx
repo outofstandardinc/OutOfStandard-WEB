@@ -1,4 +1,5 @@
 import Container from '../Container'
+import GlassPanel from '../GlassPanel/GlassPanel'
 import InfoCard from '../InfoCard/InfoCard'
 import { ExternalLinkIcon } from '../decor/Icons'
 
@@ -186,6 +187,7 @@ export default function EvidenceSources() {
   return (
     <section id="sources" className="relative py-24 sm:py-32">
       <Container>
+        <GlassPanel>
         <div className="reveal">
           <h2 className="text-[clamp(1.9rem,3.6vw,2.75rem)] font-extrabold leading-[1.12] text-brand">
             Evidence &amp; Sources
@@ -198,6 +200,7 @@ export default function EvidenceSources() {
             building.
           </p>
         </div>
+        </GlassPanel>
 
         <div className="mt-10 flex flex-col gap-6">
           {EVIDENCE.map((entry) => (

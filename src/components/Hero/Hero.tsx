@@ -1,4 +1,5 @@
 import Container from '../Container'
+import GlassPanel from '../GlassPanel/GlassPanel'
 import { useTab } from '../../context/TabContext'
 
 export default function Hero() {
@@ -10,9 +11,9 @@ export default function Hero() {
       className="relative overflow-hidden pt-32 pb-8"
     >
       <Container className="relative z-10">
-        <div className="max-w-3xl">
+        <GlassPanel className="max-w-3xl">
           <h1 className="text-[clamp(1.575rem,3.45vw,2.7rem)] font-extrabold leading-[1.1] text-brand">
-            Infrastructure Layer for Physical and Postal Address Control
+            Infrastructure Layer for Physical and Mailing Address Control
           </h1>
 
           <span
@@ -25,7 +26,7 @@ export default function Hero() {
             <strong className="font-extrabold">next-generation infrastructure</strong>{' '}
             designed to redefine{' '}
             <strong className="font-extrabold">control, verification, and trust</strong>{' '}
-            in physical and postal addresses.
+            in physical and mailing addresses.
           </p>
 
           <p className="mt-5 text-lg leading-relaxed text-muted">
@@ -51,14 +52,14 @@ export default function Hero() {
           </p>
 
           <p className="mt-5 text-lg leading-relaxed text-muted">
-            Out Of Standard is building a new infrastructure layer for
-            physical and postal addresses that provides organizations with a{' '}
+            Out Of Standard, Inc. is building a new infrastructure layer for
+            physical and mailing addresses that provides organizations with a{' '}
             <strong className="font-extrabold text-ink">reliable trust signal</strong>{' '}
             while giving people{' '}
             <strong className="font-extrabold text-ink">control over their address data</strong>
             .
           </p>
-        </div>
+        </GlassPanel>
       </Container>
     </section>
   )

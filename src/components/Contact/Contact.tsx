@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Container from '../Container'
+import GlassPanel from '../GlassPanel/GlassPanel'
 import InfoCard from '../InfoCard/InfoCard'
 import { MailIcon, LinkedInIcon, CheckIcon } from '../decor/Icons'
 import { CONTACT_EMAIL, LINKEDIN_URL } from '../../config/siteConfig'
@@ -16,6 +17,7 @@ export default function Contact() {
   return (
     <section id="contact" className="relative py-24 sm:py-32">
       <Container>
+        <GlassPanel>
         <div className="reveal">
           <h2 className="text-[clamp(1.9rem,3.6vw,2.75rem)] font-extrabold leading-[1.12] text-brand">
             About the Company
@@ -39,8 +41,10 @@ export default function Contact() {
             </p>
           </div>
         </div>
+        </GlassPanel>
 
-        <div className="reveal mt-16">
+        <GlassPanel className="mt-8">
+        <div className="reveal">
           <h2 className="text-[clamp(1.9rem,3.6vw,2.75rem)] font-extrabold leading-[1.12] text-brand">
             Contact
           </h2>
@@ -90,6 +94,7 @@ export default function Contact() {
             )}
           </InfoCard>
         </div>
+        </GlassPanel>
       </Container>
     </section>
   )
