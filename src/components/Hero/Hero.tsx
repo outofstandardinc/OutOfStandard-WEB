@@ -54,7 +54,7 @@ export default function Hero() {
           <p className="mt-5 text-lg leading-relaxed text-muted">
             Out Of Standard, Inc. is building a new infrastructure layer for
             physical and mailing addresses that provides organizations with a{' '}
-            <strong className="font-extrabold text-ink">reliable trust signal</strong>{' '}
+            <strong className="font-extrabold text-ink">reliable, real-time trust signal</strong>{' '}
             while giving people{' '}
             <strong className="font-extrabold text-ink">control over their address data</strong>
             .
