@@ -32,8 +32,9 @@ export default function Hero() {
           <p className="mt-5 text-lg leading-relaxed text-muted">
             The physical address is one of the{' '}
             <strong className="font-extrabold text-ink">fundamental identifiers</strong>{' '}
-            of modern America. Banking, insurance, real estate, logistics,
-            commerce, and government processes all depend on it.
+            of modern America. Many critical processes across banking,
+            insurance, real estate, logistics, commerce, and government
+            depend on it.
           </p>
 
           <p className="mt-5 text-lg leading-relaxed text-muted">
