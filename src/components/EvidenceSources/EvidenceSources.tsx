@@ -23,6 +23,19 @@ const EVIDENCE: EvidenceEntry[] = [
   {
     citations: [
       {
+        source: 'NBC News',
+        title: 'U.S. Postal Service reports $2.5 billion quarterly loss',
+        locationLabel: 'By Reuters',
+        excerpt: [
+          'WASHINGTON — The U.S. Postal Service reported a $2.5 billion net loss for the fiscal third quarter, nearly $600 million less of a loss than the same quarter last year, and urged a series of actions from Congress to address its mounting financial crisis.',
+        ],
+        url: 'https://www.nbcnews.com/news/us-news/us-postal-service-reports-25-billion-quarterly-loss-rcna591493',
+      },
+    ],
+  },
+  {
+    citations: [
+      {
         source: 'Federal Bureau of Investigation (FBI)',
         docType: 'Public Service Announcement',
         title: 'Mail Theft-Related Check Fraud is on the Rise',
