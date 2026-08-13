@@ -5,6 +5,7 @@ import { ExternalLinkIcon } from '../decor/Icons'
 
 type Citation = {
   source: string
+  logo?: string
   docType?: string
   title: string
   locationLabel: string
@@ -24,6 +25,7 @@ const EVIDENCE: EvidenceEntry[] = [
     citations: [
       {
         source: 'Reuters',
+        logo: '/logos/reuters.svg',
         title: 'U.S. Postal Service reports $2.5 billion quarterly loss',
         locationLabel: 'Opening paragraph',
         boldPhrase:
@@ -39,6 +41,7 @@ const EVIDENCE: EvidenceEntry[] = [
     citations: [
       {
         source: 'Federal Bureau of Investigation (FBI)',
+        logo: '/logos/fbi.svg',
         docType: 'Public Service Announcement',
         title: 'Mail Theft-Related Check Fraud is on the Rise',
         locationLabel: 'Opening paragraph',
@@ -51,6 +54,7 @@ const EVIDENCE: EvidenceEntry[] = [
       },
       {
         source: 'Federal Reserve Bank of Boston',
+        logo: '/logos/bostonfed.svg',
         docType: 'Article',
         title: 'Why is Check Fraud Suddenly Rampant?',
         locationLabel: 'Opening section',
@@ -67,6 +71,7 @@ const EVIDENCE: EvidenceEntry[] = [
     citations: [
       {
         source: 'Bank of America',
+        logo: '/logos/bankofamerica.svg',
         docType: 'Security Advisory',
         title: 'Beware of Check Fraud',
         locationLabel: 'Opening section',
@@ -79,6 +84,7 @@ const EVIDENCE: EvidenceEntry[] = [
       },
       {
         source: 'JPMorgan Chase Bank',
+        logo: '/logos/chase.svg',
         docType: 'Security Guidance',
         title: 'Payment Choices Matter',
         locationLabel: 'Checks — Tip',
@@ -94,6 +100,7 @@ const EVIDENCE: EvidenceEntry[] = [
     citations: [
       {
         source: 'U.S. Postal Service Office of Inspector General',
+        logo: '/logos/uspsoig.svg',
         title: 'Postal Automated Redirection System',
         locationLabel: 'Page 3',
         excerptHeading: 'What We Found',
@@ -111,6 +118,7 @@ const EVIDENCE: EvidenceEntry[] = [
       {
         source:
           'U.S. Department of the Treasury, Financial Crimes Enforcement Network (FinCEN)',
+        logo: '/logos/fincen.svg',
         title:
           'Mail Theft-Related Check Fraud: Threat Pattern & Trend Information',
         locationLabel: 'Page 2',
@@ -128,6 +136,7 @@ const EVIDENCE: EvidenceEntry[] = [
     citations: [
       {
         source: 'U.S. Postal Service Office of Inspector General',
+        logo: '/logos/uspsoig.svg',
         title: 'The Postal Service’s Secure Destruction Program',
         locationLabel: 'Page 3',
         excerptHeading: 'Objective',
@@ -147,10 +156,22 @@ const EVIDENCE: EvidenceEntry[] = [
 function CitationBlock({ citation }: { citation: Citation }) {
   return (
     <div>
-      <p className="inline-block rounded-full bg-accent-light px-3 py-1 text-xs font-black uppercase tracking-wide text-brand">
-        {citation.source}
-        {citation.docType ? ` — ${citation.docType}` : ''}
-      </p>
+      <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
+        {citation.logo && (
+          <span className="inline-flex h-9 items-center justify-center rounded-md bg-white px-2 shadow-sm ring-1 ring-black/5">
+            <img
+              src={citation.logo}
+              alt={`${citation.source} logo`}
+              loading="lazy"
+              className="h-6 w-auto max-w-[120px] object-contain"
+            />
+          </span>
+        )}
+        <p className="inline-block rounded-full bg-accent-light px-3 py-1 text-xs font-black uppercase tracking-wide text-brand">
+          {citation.source}
+          {citation.docType ? ` — ${citation.docType}` : ''}
+        </p>
+      </div>
       <div className="mt-1 flex flex-wrap items-start justify-between gap-x-4 gap-y-1">
         <h3 className="text-lg font-extrabold text-ink">{citation.title}</h3>
         <a
