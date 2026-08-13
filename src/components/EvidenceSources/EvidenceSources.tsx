@@ -26,6 +26,8 @@ const EVIDENCE: EvidenceEntry[] = [
         source: 'NBC News',
         title: 'U.S. Postal Service reports $2.5 billion quarterly loss',
         locationLabel: 'By Reuters',
+        boldPhrase:
+          'WASHINGTON — The U.S. Postal Service reported a $2.5 billion net loss for the fiscal third quarter',
         excerpt: [
           'WASHINGTON — The U.S. Postal Service reported a $2.5 billion net loss for the fiscal third quarter, nearly $600 million less of a loss than the same quarter last year, and urged a series of actions from Congress to address its mounting financial crisis.',
         ],
@@ -168,15 +170,18 @@ function CitationBlock({ citation }: { citation: Citation }) {
         {citation.excerpt.map((paragraph, index) => {
           const boldPhrase = citation.boldPhrase
           const boldIndex = boldPhrase ? paragraph.indexOf(boldPhrase) : -1
+          const isFirst = index === 0
+          const isLast = index === citation.excerpt.length - 1
 
           return (
             <p key={index}>
-              {index === 0 && citation.excerptHeading && (
+              {isFirst && '“'}
+              {isFirst && citation.excerptHeading && (
                 <strong className="font-extrabold">
                   {citation.excerptHeading}:{' '}
                 </strong>
               )}
-              {index === 0 && citation.leadIn && (
+              {isFirst && citation.leadIn && (
                 <strong className="font-extrabold">{citation.leadIn}</strong>
               )}
               {boldIndex === -1 || !boldPhrase ? (
@@ -188,6 +193,7 @@ function CitationBlock({ citation }: { citation: Citation }) {
                   {paragraph.slice(boldIndex + boldPhrase.length)}
                 </>
               )}
+              {isLast && '”'}
             </p>
           )
         })}
