@@ -7,6 +7,7 @@ import Problem from './components/Problem/Problem'
 import Impact from './components/Impact/Impact'
 import Contact from './components/Contact/Contact'
 import Footer from './components/Footer/Footer'
+import NextSectionButton from './components/NextSectionButton/NextSectionButton'
 import { TabProvider, useTab } from './context/TabContext'
 
 function ActivePanel() {
@@ -48,6 +49,7 @@ function App() {
       <main>
         <ActivePanel />
       </main>
+      <NextSectionButton />
       <Footer />
     </TabProvider>
   )
