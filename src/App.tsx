@@ -46,10 +46,12 @@ function App() {
     <TabProvider>
       <BackgroundMap />
       <Header />
-      <main>
-        <ActivePanel />
+      <main className="flex">
+        <div className="min-w-0 flex-1">
+          <ActivePanel />
+        </div>
+        <NextSectionButton />
       </main>
-      <NextSectionButton />
       <Footer />
     </TabProvider>
   )

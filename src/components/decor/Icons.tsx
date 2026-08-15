@@ -180,6 +180,41 @@ export function ArrowRightIcon({ className }: IconProps) {
   )
 }
 
+export function ChevronNextIcon({ className }: IconProps) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={3}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      aria-hidden="true"
+    >
+      <path d="M9 4.5 16.5 12 9 19.5" />
+    </svg>
+  )
+}
+
+export function ChevronDoubleLeftIcon({ className }: IconProps) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={3}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      aria-hidden="true"
+    >
+      <path d="M16.5 4.5 9 12l7.5 7.5" />
+      <path d="M10.5 4.5 3 12l7.5 7.5" />
+    </svg>
+  )
+}
+
 export function MenuIcon({ className }: IconProps) {
   return (
     <svg {...base} className={className} aria-hidden="true">
