@@ -38,6 +38,22 @@ const EVIDENCE: EvidenceEntry[] = [
   {
     citations: [
       {
+        source: 'Federal Trade Commission',
+        title:
+          'Agencies Issue Final Rules on Identity Theft Red Flags and Notices of Address Discrepancy',
+        locationLabel: 'Opening paragraph',
+        boldPhrase:
+          'The Federal Trade Commission and the federal financial institution regulatory agencies have sent to the Federal Register for publication final rules on identity theft “red flags” and address discrepancies.',
+        excerpt: [
+          'The Federal Trade Commission and the federal financial institution regulatory agencies have sent to the Federal Register for publication final rules on identity theft “red flags” and address discrepancies.',
+        ],
+        url: 'https://www.ftc.gov/news-events/news/press-releases/2007/10/agencies-issue-final-rules-identity-theft-red-flags-notices-address-discrepancy',
+      },
+    ],
+  },
+  {
+    citations: [
+      {
         source: 'Federal Bureau of Investigation (FBI)',
         docType: 'Public Service Announcement',
         title: 'Mail Theft-Related Check Fraud is on the Rise',
