@@ -54,7 +54,7 @@ export default function Problem() {
                 onClick={() => setActiveTab('sources')}
                 className="font-extrabold text-brand underline underline-offset-2 hover:text-brand-dark"
               >
-                Evidence &amp; Sources
+                Industry Evidence
               </button>
               .
             </p>

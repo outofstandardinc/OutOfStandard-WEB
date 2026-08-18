@@ -10,7 +10,7 @@ export const COPYRIGHT_YEAR = 2026
 export const NAV_LINKS = [
   { id: 'intro', label: 'Products' },
   { id: 'problem', label: 'Problems We Solve' },
-  { id: 'sources', label: 'Evidence & Sources' },
+  { id: 'sources', label: 'Industry Evidence' },
   { id: 'impact', label: 'Impact' },
   { id: 'contact', label: 'Company' },
 ] as const

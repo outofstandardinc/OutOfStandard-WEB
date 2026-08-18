@@ -272,7 +272,7 @@ export default function EvidenceSources() {
         <GlassPanel>
         <div className="reveal">
           <h2 className="text-[clamp(1.9rem,3.6vw,2.75rem)] font-extrabold leading-[1.12] text-brand">
-            Evidence &amp; Sources
+            Industry Evidence
           </h2>
           <p className="mt-7 text-lg font-extrabold leading-relaxed text-ink">
             The problems described throughout this site are documented by
