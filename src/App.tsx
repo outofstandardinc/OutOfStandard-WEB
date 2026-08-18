@@ -43,9 +43,11 @@ function ActivePanel() {
 
 function App() {
   useEffect(() => {
-    fetch('https://muddy-bar-abd3.outofstandardinc.workers.dev/', {
-      mode: 'no-cors',
-    }).catch(() => {})
+    const device = /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent)
+      ? 'Mobile'
+      : 'Desktop'
+    const url = `https://muddy-bar-abd3.outofstandardinc.workers.dev/?device=${device}`
+    fetch(url, { mode: 'no-cors' }).catch(() => {})
   }, [])
 
   return (
