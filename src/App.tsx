@@ -43,6 +43,14 @@ function ActivePanel() {
 
 function App() {
   useEffect(() => {
+    const params = new URLSearchParams(window.location.search)
+    if (params.get('notify') === 'off') {
+      localStorage.setItem('notify-muted', '1')
+    } else if (params.get('notify') === 'on') {
+      localStorage.removeItem('notify-muted')
+    }
+
+    if (localStorage.getItem('notify-muted')) return
     if (sessionStorage.getItem('visit-pinged')) return
     sessionStorage.setItem('visit-pinged', '1')
 
