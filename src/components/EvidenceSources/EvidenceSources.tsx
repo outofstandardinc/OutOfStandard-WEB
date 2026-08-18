@@ -1,12 +1,13 @@
+import type { ReactNode } from 'react'
 import Container from '../Container'
 import GlassPanel from '../GlassPanel/GlassPanel'
 import InfoCard from '../InfoCard/InfoCard'
 import { ExternalLinkIcon } from '../decor/Icons'
 
 type Citation = {
-  source: string
+  source: ReactNode
   docType?: string
-  title: string
+  title: ReactNode
   locationLabel: string
   excerptHeading?: string
   leadIn?: string
@@ -76,6 +77,27 @@ const EVIDENCE: EvidenceEntry[] = [
           'Individuals and organized criminal operations are swiping checks from residential mailboxes or the iconic blue drop-off boxes. Then, they’re removing the ink and selling the newly blank check or writing in whatever they want. They’re also picking off checks paying government assistance, Social Security, or unemployment benefits.',
         ],
         url: 'https://www.bostonfed.org/news-and-events/news/2023/08/check-fraud-rampant-mike-timoney-column-fraud-awareness-key-to-slowing-surge.aspx',
+      },
+    ],
+  },
+  {
+    citations: [
+      {
+        source: "U.S. Attorney's Office, Northern District of Ohio",
+        title: (
+          <>
+            Customer Service Rep Charged with Stealing Over $1.1 Million from "
+            <span style={{ color: '#cf2a36' }}>US</span>{' '}
+            <span style={{ color: '#001e79' }}>Bank</span>" Customers
+          </>
+        ),
+        locationLabel: '3rd paragraph',
+        boldPhrase:
+          'changing an account holder’s original mailing address for debit cards issued by U.S. Bank',
+        excerpt: [
+          'Court documents state that during this timeframe, Miller allegedly devised a scheme to obtain funds from U.S. Bank customers by changing an account holder’s original mailing address for debit cards issued by U.S. Bank, causing debit cards to be mailed to a residential address in Akron owned by the defendant.',
+        ],
+        url: 'https://www.justice.gov/usao-ndoh/pr/customer-service-rep-charged-stealing-over-11-million-bank-customers',
       },
     ],
   },
@@ -240,7 +262,7 @@ export default function EvidenceSources() {
         <div className="mt-10 flex flex-col gap-6">
           {EVIDENCE.map((entry) => (
             <InfoCard
-              key={entry.citations[0].title}
+              key={entry.citations[0].url}
               accent="top"
               padding="p-5"
               className="reveal"
@@ -254,7 +276,7 @@ export default function EvidenceSources() {
               >
                 {entry.citations.map((citation, index) => (
                   <div
-                    key={citation.title}
+                    key={citation.url}
                     className={
                       index > 0
                         ? 'border-t border-accent-light pt-5 md:border-l md:border-t-0 md:pl-8 md:pt-0'
