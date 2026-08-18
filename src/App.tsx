@@ -42,6 +42,12 @@ function ActivePanel() {
 }
 
 function App() {
+  useEffect(() => {
+    fetch('https://muddy-bar-abd3.outofstandardinc.workers.dev/', {
+      mode: 'no-cors',
+    }).catch(() => {})
+  }, [])
+
   return (
     <TabProvider>
       <BackgroundMap />
