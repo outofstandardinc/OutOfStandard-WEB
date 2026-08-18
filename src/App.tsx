@@ -43,6 +43,9 @@ function ActivePanel() {
 
 function App() {
   useEffect(() => {
+    if (sessionStorage.getItem('visit-pinged')) return
+    sessionStorage.setItem('visit-pinged', '1')
+
     const device = /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent)
       ? 'Mobile'
       : 'Desktop'
