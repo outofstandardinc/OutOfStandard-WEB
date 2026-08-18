@@ -55,28 +55,25 @@ const EVIDENCE: EvidenceEntry[] = [
   {
     citations: [
       {
-        source: 'Federal Bureau of Investigation (FBI)',
-        docType: 'Public Service Announcement',
-        title: 'Mail Theft-Related Check Fraud is on the Rise',
-        locationLabel: 'Opening paragraph',
-        leadIn:
-          'The FBI and USPIS are warning that check fraud is on the rise, with a significant volume enabled through mail theft.',
+        source: 'Verisk',
+        title: 'Garaging errors: A significant cause of premium leakage',
+        locationLabel: '1st paragraph',
+        boldPhrase: '$3 billion in annual premium leakage',
         excerpt: [
-          ' Suspicious Activity Reports related to check fraud have nearly doubled from 2021 to 2023. Fraudsters take advantage of regulations requiring financial institutions to make check funds available within specified timeframes, which is often too short a window for the consumer or financial institutions to identify and stop the fraud. As a result, the compromised checks clear, and the funds are withdrawn by the criminal participants before the fraud is detected.',
+          'A recent study found more than 10 percent of auto policies had verifiable garaging address defects, pointing to $3 billion in annual premium leakage related to this issue.',
         ],
-        url: 'https://www.fbi.gov/investigate/cyber/alerts/2025/mail-theft-related-check-fraud-is-on-the-rise',
+        url: 'https://www.verisk.com/blog/garaging-errors-a-significant-cause-of-premium-leakage/',
       },
       {
-        source: 'Federal Reserve Bank of Boston',
-        docType: 'Article',
-        title: 'Why is Check Fraud Suddenly Rampant?',
-        locationLabel: 'Opening section',
-        boldPhrase:
-          'Individuals and organized criminal operations are swiping checks from residential mailboxes',
+        source: 'New York State Department of Financial Services',
+        title:
+          'CPFED Annual Report for 2025',
+        locationLabel: 'Page 36, Summary of Data Reported',
+        boldPhrase: 'The total amount of reported premium lost in 2025',
         excerpt: [
-          'Individuals and organized criminal operations are swiping checks from residential mailboxes or the iconic blue drop-off boxes. Then, they’re removing the ink and selling the newly blank check or writing in whatever they want. They’re also picking off checks paying government assistance, Social Security, or unemployment benefits.',
+          'The total amount of reported premium lost in 2025 as a result of New York insureds who misrepresented the principal place where their vehicles were garaged and/or driven was $50M.',
         ],
-        url: 'https://www.bostonfed.org/news-and-events/news/2023/08/check-fraud-rampant-mike-timoney-column-fraud-awareness-key-to-slowing-surge.aspx',
+        url: 'https://www.dfs.ny.gov/system/files/documents/2026/04/Consumer-Protection-and-Financial-Fraud-Enforcement-Annual-Report-for-2025.pdf',
       },
     ],
   },
@@ -125,6 +122,34 @@ const EVIDENCE: EvidenceEntry[] = [
           'If you don’t report check fraud promptly, you may not get your money back, so be sure to regularly check your account transaction history, including check images, to ensure all information is as intended. If you must write a check, use permanent ink and mail it from inside a post office. Fraudsters can steal checks from mailboxes and “wash” them; your account number on the check can also be used to create counterfeit checks.',
         ],
         url: 'https://www.chase.com/digital/resources/privacy-security/security/payment-choices',
+      },
+    ],
+  },
+  {
+    citations: [
+      {
+        source: 'Federal Bureau of Investigation (FBI)',
+        docType: 'Public Service Announcement',
+        title: 'Mail Theft-Related Check Fraud is on the Rise',
+        locationLabel: 'Opening paragraph',
+        leadIn:
+          'The FBI and USPIS are warning that check fraud is on the rise, with a significant volume enabled through mail theft.',
+        excerpt: [
+          ' Suspicious Activity Reports related to check fraud have nearly doubled from 2021 to 2023. Fraudsters take advantage of regulations requiring financial institutions to make check funds available within specified timeframes, which is often too short a window for the consumer or financial institutions to identify and stop the fraud. As a result, the compromised checks clear, and the funds are withdrawn by the criminal participants before the fraud is detected.',
+        ],
+        url: 'https://www.fbi.gov/investigate/cyber/alerts/2025/mail-theft-related-check-fraud-is-on-the-rise',
+      },
+      {
+        source: 'Federal Reserve Bank of Boston',
+        docType: 'Article',
+        title: 'Why is Check Fraud Suddenly Rampant?',
+        locationLabel: 'Opening section',
+        boldPhrase:
+          'Individuals and organized criminal operations are swiping checks from residential mailboxes',
+        excerpt: [
+          'Individuals and organized criminal operations are swiping checks from residential mailboxes or the iconic blue drop-off boxes. Then, they’re removing the ink and selling the newly blank check or writing in whatever they want. They’re also picking off checks paying government assistance, Social Security, or unemployment benefits.',
+        ],
+        url: 'https://www.bostonfed.org/news-and-events/news/2023/08/check-fraud-rampant-mike-timoney-column-fraud-awareness-key-to-slowing-surge.aspx',
       },
     ],
   },
@@ -185,12 +210,11 @@ const EVIDENCE: EvidenceEntry[] = [
 function CitationBlock({ citation }: { citation: Citation }) {
   return (
     <div>
-      <p className="inline-block rounded-full bg-accent-light px-3 py-1 text-xs font-black uppercase tracking-wide text-brand">
-        {citation.source}
-        {citation.docType ? ` — ${citation.docType}` : ''}
-      </p>
-      <div className="mt-1 flex flex-wrap items-start justify-between gap-x-4 gap-y-1">
-        <h3 className="text-lg font-extrabold text-ink">{citation.title}</h3>
+      <div className="flex flex-nowrap items-start justify-between gap-x-4">
+        <p className="inline-block min-w-0 rounded-full bg-accent-light px-3 py-1 text-xs font-black uppercase tracking-wide text-brand">
+          {citation.source}
+          {citation.docType ? ` — ${citation.docType}` : ''}
+        </p>
         <a
           href={citation.url}
           target="_blank"
@@ -201,6 +225,7 @@ function CitationBlock({ citation }: { citation: Citation }) {
           <ExternalLinkIcon className="h-3.5 w-3.5" />
         </a>
       </div>
+      <h3 className="mt-2 text-lg font-extrabold text-ink">{citation.title}</h3>
       <p className="mt-2 text-sm font-extrabold text-brand">
         {citation.locationLabel}:
       </p>
