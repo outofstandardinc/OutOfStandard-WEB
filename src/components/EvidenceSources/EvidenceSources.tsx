@@ -144,6 +144,8 @@ const EVIDENCE: EvidenceEntry[] = [
       },
       {
         source: 'Federal Reserve Bank of Boston',
+        logo: '/logos/bostonfed.svg',
+        logoLarge: true,
         docType: 'Article',
         title: 'Why is Check Fraud Suddenly Rampant?',
         locationLabel: 'Opening section',
