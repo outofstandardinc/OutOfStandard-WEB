@@ -43,6 +43,11 @@ function ActivePanel() {
 
 function App() {
   useEffect(() => {
+    const isLocalhost = ['localhost', '127.0.0.1'].includes(
+      window.location.hostname,
+    )
+    if (isLocalhost) return
+
     const params = new URLSearchParams(window.location.search)
     if (params.get('notify') === 'off') {
       localStorage.setItem('notify-muted', '1')

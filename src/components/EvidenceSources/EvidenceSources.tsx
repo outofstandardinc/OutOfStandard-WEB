@@ -14,7 +14,7 @@ type Citation = {
   locationLabel: string
   excerptHeading?: string
   leadIn?: string
-  boldPhrase?: string
+  boldPhrase?: string | string[]
   excerpt: string[]
   url: string
 }
@@ -38,6 +38,23 @@ const EVIDENCE: EvidenceEntry[] = [
           'WASHINGTON — The U.S. Postal Service reported a $2.5 billion net loss for the fiscal third quarter, nearly $600 million less of a loss than the same quarter last year, and urged a series of actions from Congress to address its mounting financial crisis.',
         ],
         url: 'https://www.reuters.com/business/us-postal-service-reports-25-billion-quarterly-loss-2026-08-07/',
+      },
+    ],
+  },
+  {
+    citations: [
+      {
+        source: 'DHS OIG',
+        logo: '/logos/uscis-seal.svg',
+        logoSizePx: 213,
+        title: 'Better Safeguards Are Needed in USCIS Green Card Issuance',
+        locationLabel: 'Pg. 2',
+        boldPhrase:
+          'The number of cards sent to wrong addresses has incrementally increased since 2013',
+        excerpt: [
+          'Over the last 3 years, USCIS received over 200,000 reports from approved applicants about missing cards. The number of cards sent to wrong addresses has incrementally increased since 2013 due in part to complex processes for updating addresses, ELIS limitations, and factors beyond the agency’s control.',
+        ],
+        url: 'https://www.oversight.gov/sites/default/files/documents/reports/2017-07/OIG-17-11-Nov16.pdf',
       },
     ],
   },
@@ -213,7 +230,48 @@ const EVIDENCE: EvidenceEntry[] = [
       },
     ],
   },
+  {
+    citations: [
+      {
+        source: 'CT Insider',
+        logo: '/logos/ctinsider.svg',
+        title:
+          "CT-based Aetna's data breaches affected more than 11,600 people, reports say",
+        locationLabel: '3rd paragraph',
+        boldPhrase:
+          'An error in the mailing distribution process resulted in letters sent to members that may have included an individual that was not on their health plan,',
+        excerpt: [
+          'An error in the mailing distribution process resulted in letters sent to members that may have included an individual that was not on their health plan, Shelly Bendit, senior manager of corporate communications for CVS Health, said via email.',
+        ],
+        url: 'https://www.ctinsider.com/news/article/aetna-data-breach-cvs-health-hartford-ct-22199506.php',
+      },
+    ],
+  },
 ]
+
+function renderWithBold(text: string, phrases: string[]): ReactNode {
+  const matches: { start: number; end: number }[] = []
+  for (const phrase of phrases) {
+    const idx = text.indexOf(phrase)
+    if (idx !== -1) matches.push({ start: idx, end: idx + phrase.length })
+  }
+  if (matches.length === 0) return text
+
+  matches.sort((a, b) => a.start - b.start)
+  const nodes: ReactNode[] = []
+  let cursor = 0
+  matches.forEach((m, i) => {
+    if (m.start > cursor) nodes.push(text.slice(cursor, m.start))
+    nodes.push(
+      <strong key={i} className="font-extrabold">
+        {text.slice(m.start, m.end)}
+      </strong>,
+    )
+    cursor = m.end
+  })
+  if (cursor < text.length) nodes.push(text.slice(cursor))
+  return nodes
+}
 
 function CitationBlock({ citation }: { citation: Citation }) {
   return (
@@ -253,8 +311,11 @@ function CitationBlock({ citation }: { citation: Citation }) {
       </p>
       <div className="relative z-10 mt-1 flex flex-col gap-2 text-sm leading-relaxed text-ink">
         {citation.excerpt.map((paragraph, index) => {
-          const boldPhrase = citation.boldPhrase
-          const boldIndex = boldPhrase ? paragraph.indexOf(boldPhrase) : -1
+          const boldPhrases = citation.boldPhrase
+            ? Array.isArray(citation.boldPhrase)
+              ? citation.boldPhrase
+              : [citation.boldPhrase]
+            : []
           const isFirst = index === 0
           const isLast = index === citation.excerpt.length - 1
 
@@ -269,15 +330,7 @@ function CitationBlock({ citation }: { citation: Citation }) {
               {isFirst && citation.leadIn && (
                 <strong className="font-extrabold">{citation.leadIn}</strong>
               )}
-              {boldIndex === -1 || !boldPhrase ? (
-                paragraph
-              ) : (
-                <>
-                  {paragraph.slice(0, boldIndex)}
-                  <strong className="font-extrabold">{boldPhrase}</strong>
-                  {paragraph.slice(boldIndex + boldPhrase.length)}
-                </>
-              )}
+              {renderWithBold(paragraph, boldPhrases)}
               {isLast && '”'}
             </p>
           )
@@ -300,6 +353,7 @@ const COLUMNS: Citation[][] = [
     findCitation('reuters.com'),
     findCitation('fbi.gov'),
     findCitation('ftc.gov'),
+    findCitation('oversight.gov'),
     findCitation('25-029-r25.pdf'),
     findCitation('21-025-R21.pdf'),
   ],
@@ -312,6 +366,7 @@ const COLUMNS: Citation[][] = [
   [
     findCitation('verisk.com'),
     findCitation('dfs.ny.gov'),
+    findCitation('ctinsider.com'),
   ],
 ]
 
