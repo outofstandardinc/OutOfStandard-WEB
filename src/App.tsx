@@ -66,6 +66,42 @@ function App() {
     fetch(url, { mode: 'no-cors' }).catch(() => {})
   }, [])
 
+  // Google Analytics: tag every event in this session with a visit_id and
+  // report total time on site as duration_seconds when the visitor leaves.
+  useEffect(() => {
+    const gtag = (window as unknown as { gtag?: (...args: unknown[]) => void })
+      .gtag
+    if (typeof gtag !== 'function') return
+
+    let visitId = sessionStorage.getItem('ga-visit-id')
+    if (!visitId) {
+      visitId = crypto.randomUUID()
+      sessionStorage.setItem('ga-visit-id', visitId)
+    }
+    gtag('set', 'user_properties', { visit_id: visitId })
+
+    const startTime = Date.now()
+    let sent = false
+    const sendDuration = () => {
+      if (sent) return
+      sent = true
+      const duration_seconds = Math.round((Date.now() - startTime) / 1000)
+      gtag('event', 'session_duration', { visit_id: visitId, duration_seconds })
+    }
+
+    const onVisibilityChange = () => {
+      if (document.visibilityState === 'hidden') sendDuration()
+    }
+
+    document.addEventListener('visibilitychange', onVisibilityChange)
+    window.addEventListener('pagehide', sendDuration)
+
+    return () => {
+      document.removeEventListener('visibilitychange', onVisibilityChange)
+      window.removeEventListener('pagehide', sendDuration)
+    }
+  }, [])
+
   return (
     <TabProvider>
       <BackgroundMap />
