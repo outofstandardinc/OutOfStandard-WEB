@@ -6,6 +6,9 @@ import { ExternalLinkIcon } from '../decor/Icons'
 
 type Citation = {
   source: ReactNode
+  logo?: string
+  logoLarge?: boolean
+  logoSizePx?: number
   docType?: string
   title: ReactNode
   locationLabel: string
@@ -25,6 +28,8 @@ const EVIDENCE: EvidenceEntry[] = [
     citations: [
       {
         source: 'Reuters',
+        logo: '/logos/reuters.svg',
+        logoLarge: true,
         title: 'U.S. Postal Service reports $2.5 billion quarterly loss',
         locationLabel: 'Opening paragraph',
         boldPhrase:
@@ -40,6 +45,7 @@ const EVIDENCE: EvidenceEntry[] = [
     citations: [
       {
         source: 'Federal Trade Commission',
+        logo: '/logos/ftc.svg',
         title:
           'Agencies Issue Final Rules on Identity Theft Red Flags and Notices of Address Discrepancy',
         locationLabel: 'Opening paragraph',
@@ -56,6 +62,8 @@ const EVIDENCE: EvidenceEntry[] = [
     citations: [
       {
         source: 'Verisk',
+        logo: '/logos/verisk.svg',
+        logoLarge: true,
         title: 'Garaging errors: A significant cause of premium leakage',
         locationLabel: '1st paragraph',
         boldPhrase: '$3 billion in annual premium leakage',
@@ -65,15 +73,18 @@ const EVIDENCE: EvidenceEntry[] = [
         url: 'https://www.verisk.com/blog/garaging-errors-a-significant-cause-of-premium-leakage/',
       },
       {
-        source: 'New York State Department of Financial Services',
-        title:
-          'CPFED Annual Report for 2025',
-        locationLabel: 'Page 36, Summary of Data Reported',
-        boldPhrase: 'The total amount of reported premium lost in 2025',
+        source: 'Bank of America',
+        logo: '/logos/bankofamerica.svg',
+        logoLarge: true,
+        docType: 'Security Advisory',
+        title: 'Beware of Check Fraud',
+        locationLabel: 'Opening section',
+        boldPhrase:
+          'Scammers often target the mail to steal checks and other personal or financial information',
         excerpt: [
-          'The total amount of reported premium lost in 2025 as a result of New York insureds who misrepresented the principal place where their vehicles were garaged and/or driven was $50M.',
+          'Paper checks contain personal information, and whomever gets their hands on the check can see that info. Check fraud occurs when a criminal obtains money illegally using stolen checks or check information. Scammers often target the mail to steal checks and other personal or financial information with the intent to commit fraud and identity theft. They may even alter a check payee, dollar amount or the forge endorsement. Don’t let this happen to you.',
         ],
-        url: 'https://www.dfs.ny.gov/system/files/documents/2026/04/Consumer-Protection-and-Financial-Fraud-Enforcement-Annual-Report-for-2025.pdf',
+        url: 'https://web.bankofamerica.com/en/security/library/beware-of-check-fraud',
       },
     ],
   },
@@ -81,6 +92,8 @@ const EVIDENCE: EvidenceEntry[] = [
     citations: [
       {
         source: "U.S. Attorney's Office, Northern District of Ohio",
+        logo: '/logos/doj.png',
+        logoSizePx: 160,
         title: (
           <>
             Customer Service Rep Charged with Stealing Over $1.1 Million from "
@@ -101,27 +114,16 @@ const EVIDENCE: EvidenceEntry[] = [
   {
     citations: [
       {
-        source: 'Bank of America',
-        docType: 'Security Advisory',
-        title: 'Beware of Check Fraud',
-        locationLabel: 'Opening section',
-        boldPhrase:
-          'Scammers often target the mail to steal checks and other personal or financial information',
+        source: 'New York State Department of Financial Services',
+        logo: '/logos/nydfs.png',
+        title:
+          'CPFED Annual Report for 2025',
+        locationLabel: 'Page 36, Summary of Data Reported',
+        boldPhrase: 'The total amount of reported premium lost in 2025',
         excerpt: [
-          'Paper checks contain personal information, and whomever gets their hands on the check can see that info. Check fraud occurs when a criminal obtains money illegally using stolen checks or check information. Scammers often target the mail to steal checks and other personal or financial information with the intent to commit fraud and identity theft. They may even alter a check payee, dollar amount or the forge endorsement. Don’t let this happen to you.',
+          'The total amount of reported premium lost in 2025 as a result of New York insureds who misrepresented the principal place where their vehicles were garaged and/or driven was $50M.',
         ],
-        url: 'https://web.bankofamerica.com/en/security/library/beware-of-check-fraud',
-      },
-      {
-        source: 'JPMorgan Chase Bank',
-        docType: 'Security Guidance',
-        title: 'Payment Choices Matter',
-        locationLabel: 'Checks — Tip',
-        boldPhrase: 'Fraudsters can steal checks from mailboxes and “wash” them;',
-        excerpt: [
-          'If you don’t report check fraud promptly, you may not get your money back, so be sure to regularly check your account transaction history, including check images, to ensure all information is as intended. If you must write a check, use permanent ink and mail it from inside a post office. Fraudsters can steal checks from mailboxes and “wash” them; your account number on the check can also be used to create counterfeit checks.',
-        ],
-        url: 'https://www.chase.com/digital/resources/privacy-security/security/payment-choices',
+        url: 'https://www.dfs.ny.gov/system/files/documents/2026/04/Consumer-Protection-and-Financial-Fraud-Enforcement-Annual-Report-for-2025.pdf',
       },
     ],
   },
@@ -129,6 +131,7 @@ const EVIDENCE: EvidenceEntry[] = [
     citations: [
       {
         source: 'Federal Bureau of Investigation (FBI)',
+        logo: '/logos/fbi.svg',
         docType: 'Public Service Announcement',
         title: 'Mail Theft-Related Check Fraud is on the Rise',
         locationLabel: 'Opening paragraph',
@@ -157,6 +160,7 @@ const EVIDENCE: EvidenceEntry[] = [
     citations: [
       {
         source: 'U.S. Postal Service Office of Inspector General',
+        logo: '/logos/uspsoig.svg',
         title: 'Postal Automated Redirection System',
         locationLabel: 'Page 3',
         excerptHeading: 'What We Found',
@@ -174,6 +178,7 @@ const EVIDENCE: EvidenceEntry[] = [
       {
         source:
           'U.S. Department of the Treasury, Financial Crimes Enforcement Network (FinCEN)',
+        logo: '/logos/fincen.svg',
         title:
           'Mail Theft-Related Check Fraud: Threat Pattern & Trend Information',
         locationLabel: 'Page 2',
@@ -191,6 +196,7 @@ const EVIDENCE: EvidenceEntry[] = [
     citations: [
       {
         source: 'U.S. Postal Service Office of Inspector General',
+        logo: '/logos/uspsoig.svg',
         title: 'The Postal Service’s Secure Destruction Program',
         locationLabel: 'Page 3',
         excerptHeading: 'Objective',
@@ -209,27 +215,41 @@ const EVIDENCE: EvidenceEntry[] = [
 
 function CitationBlock({ citation }: { citation: Citation }) {
   return (
-    <div>
-      <div className="flex flex-nowrap items-start justify-between gap-x-4">
+    <div className="relative isolate overflow-hidden">
+      {citation.logo && (
+        <div className="pointer-events-none absolute inset-0 z-0 flex items-center justify-center">
+          <img
+            src={citation.logo}
+            alt=""
+            aria-hidden="true"
+            style={
+              citation.logoSizePx
+                ? {
+                    height: citation.logoSizePx,
+                    width: citation.logoSizePx,
+                    maxWidth: 'none',
+                    flexShrink: 0,
+                  }
+                : { flexShrink: 0 }
+            }
+            className={`select-none object-contain opacity-[0.27] ${citation.logoSizePx ? '' : citation.logoLarge ? 'h-80 w-80' : 'h-40 w-40'}`}
+          />
+        </div>
+      )}
+      <ExternalLinkIcon className="absolute right-0 top-0 z-10 h-4 w-4 text-brand/50 transition-colors group-hover:text-brand" />
+      <div className="relative z-10 pr-6">
         <p className="inline-block min-w-0 rounded-full bg-accent-light px-3 py-1 text-xs font-black uppercase tracking-wide text-brand">
           {citation.source}
           {citation.docType ? ` — ${citation.docType}` : ''}
         </p>
-        <a
-          href={citation.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex flex-shrink-0 items-center gap-1 text-sm font-extrabold text-brand underline underline-offset-2 hover:text-brand-dark"
-        >
-          View Source
-          <ExternalLinkIcon className="h-3.5 w-3.5" />
-        </a>
       </div>
-      <h3 className="mt-2 text-lg font-extrabold text-ink">{citation.title}</h3>
-      <p className="mt-2 text-sm font-extrabold text-brand">
+      <h3 className="relative z-10 mt-2 text-lg font-extrabold text-ink">
+        {citation.title}
+      </h3>
+      <p className="relative z-10 mt-2 text-sm font-extrabold text-brand">
         {citation.locationLabel}:
       </p>
-      <div className="mt-1 flex flex-col gap-2 text-sm leading-relaxed text-ink">
+      <div className="relative z-10 mt-1 flex flex-col gap-2 text-sm leading-relaxed text-ink">
         {citation.excerpt.map((paragraph, index) => {
           const boldPhrase = citation.boldPhrase
           const boldIndex = boldPhrase ? paragraph.indexOf(boldPhrase) : -1
@@ -265,11 +285,39 @@ function CitationBlock({ citation }: { citation: Citation }) {
   )
 }
 
+const ALL_CITATIONS = EVIDENCE.flatMap((entry) => entry.citations)
+
+function findCitation(urlPart: string): Citation {
+  const found = ALL_CITATIONS.find((c) => c.url.includes(urlPart))
+  if (!found) throw new Error(`Citation not found for url part: ${urlPart}`)
+  return found
+}
+
+const COLUMNS: Citation[][] = [
+  [
+    findCitation('reuters.com'),
+    findCitation('fbi.gov'),
+    findCitation('ftc.gov'),
+    findCitation('25-029-r25.pdf'),
+    findCitation('21-025-R21.pdf'),
+  ],
+  [
+    findCitation('justice.gov'),
+    findCitation('bankofamerica.com'),
+    findCitation('bostonfed.org'),
+    findCitation('fincen.gov'),
+  ],
+  [
+    findCitation('verisk.com'),
+    findCitation('dfs.ny.gov'),
+  ],
+]
+
 export default function EvidenceSources() {
   return (
     <section id="sources" className="relative py-24 sm:py-32">
       <Container>
-        <GlassPanel>
+        <GlassPanel shadow={false}>
         <div className="reveal">
           <h2 className="text-[clamp(1.9rem,3.6vw,2.75rem)] font-extrabold leading-[1.12] text-brand">
             Industry Evidence
@@ -284,35 +332,27 @@ export default function EvidenceSources() {
         </div>
         </GlassPanel>
 
-        <div className="mt-10 flex flex-col gap-6">
-          {EVIDENCE.map((entry) => (
-            <InfoCard
-              key={entry.citations[0].url}
-              accent="top"
-              padding="p-5"
-              className="reveal"
-            >
-              <div
-                className={
-                  entry.citations.length > 1
-                    ? 'grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-x-8 md:gap-y-0'
-                    : 'flex flex-col'
-                }
-              >
-                {entry.citations.map((citation, index) => (
-                  <div
-                    key={citation.url}
-                    className={
-                      index > 0
-                        ? 'border-t border-accent-light pt-5 md:border-l md:border-t-0 md:pl-8 md:pt-0'
-                        : undefined
-                    }
+        <div className="mt-10 flex flex-col gap-6 lg:flex-row">
+          {COLUMNS.map((column, columnIndex) => (
+            <div key={columnIndex} className="flex flex-1 flex-col gap-6">
+              {column.map((citation) => (
+                <a
+                  key={citation.url}
+                  href={citation.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group block"
+                >
+                  <InfoCard
+                    accent="top"
+                    padding="p-5"
+                    className="transition-transform duration-200 group-hover:-translate-y-1 group-hover:shadow-[0_22px_44px_-24px_rgba(8,42,67,0.45)]"
                   >
                     <CitationBlock citation={citation} />
-                  </div>
-                ))}
-              </div>
-            </InfoCard>
+                  </InfoCard>
+                </a>
+              ))}
+            </div>
           ))}
         </div>
       </Container>
