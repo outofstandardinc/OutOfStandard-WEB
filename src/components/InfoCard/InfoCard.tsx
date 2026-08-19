@@ -1,13 +1,14 @@
 import type { ReactNode } from 'react'
 
 type AccentPosition = 'top' | 'bottom' | 'none'
-type AccentWeight = 'default' | 'strong' | 'light'
+type AccentWeight = 'default' | 'strong' | 'light' | 'medium'
 
 type InfoCardProps = {
   children: ReactNode
   className?: string
   accent?: AccentPosition
   accentWeight?: AccentWeight
+  accentHoverWeight?: AccentWeight
   icon?: ReactNode
   padding?: string
 }
@@ -16,6 +17,14 @@ const accentColor: Record<AccentWeight, string> = {
   default: 'bg-brand',
   strong: 'bg-ink',
   light: 'bg-accent-light',
+  medium: 'bg-[#b3c0f5]',
+}
+
+const accentHoverColor: Record<AccentWeight, string> = {
+  default: 'group-hover:bg-brand',
+  strong: 'group-hover:bg-ink',
+  light: 'group-hover:bg-accent-light',
+  medium: 'group-hover:bg-[#b3c0f5]',
 }
 
 export default function InfoCard({
@@ -23,6 +32,7 @@ export default function InfoCard({
   className = '',
   accent = 'top',
   accentWeight = 'default',
+  accentHoverWeight,
   icon,
   padding = 'p-8',
 }: InfoCardProps) {
@@ -33,7 +43,7 @@ export default function InfoCard({
       {accent !== 'none' ? (
         <span
           aria-hidden="true"
-          className={`absolute inset-x-0 ${accent === 'top' ? 'top-0' : 'bottom-0'} h-[6px] ${accentColor[accentWeight]}`}
+          className={`absolute inset-x-0 ${accent === 'top' ? 'top-0' : 'bottom-0'} h-[6px] ${accentColor[accentWeight]} ${accentHoverWeight ? `transition-colors duration-200 ${accentHoverColor[accentHoverWeight]}` : ''}`}
         />
       ) : null}
       {icon ? (

@@ -234,13 +234,13 @@ function CitationBlock({ citation }: { citation: Citation }) {
                   }
                 : { flexShrink: 0 }
             }
-            className={`select-none object-contain opacity-[0.27] ${citation.logoSizePx ? '' : citation.logoLarge ? 'h-80 w-80' : 'h-40 w-40'}`}
+            className={`select-none object-contain opacity-[0.12] transition-opacity duration-200 group-hover:opacity-[0.27] ${citation.logoSizePx ? '' : citation.logoLarge ? 'h-80 w-80' : 'h-40 w-40'}`}
           />
         </div>
       )}
       <ExternalLinkIcon className="absolute right-0 top-0 z-10 h-4 w-4 text-brand/50 transition-colors group-hover:text-brand" />
       <div className="relative z-10 pr-6">
-        <p className="inline-block min-w-0 rounded-full bg-accent-light px-3 py-1 text-xs font-black uppercase tracking-wide text-brand">
+        <p className="inline-block min-w-0 rounded-full bg-accent-light px-3 py-1 text-xs font-black uppercase tracking-wide text-brand shadow-none transition-shadow duration-200 group-hover:shadow-[0_4px_10px_-4px_rgba(47,85,231,0.5)]">
           {citation.source}
           {citation.docType ? ` — ${citation.docType}` : ''}
         </p>
@@ -347,6 +347,8 @@ export default function EvidenceSources() {
                 >
                   <InfoCard
                     accent="top"
+                    accentWeight="medium"
+                    accentHoverWeight="default"
                     padding="p-5"
                     className="transition-transform duration-200 group-hover:-translate-y-1 group-hover:shadow-[0_22px_44px_-24px_rgba(8,42,67,0.45)]"
                   >
