@@ -1,12 +1,32 @@
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import Container from '../Container'
 import { COMPANY_NAME, NAV_LINKS } from '../../config/siteConfig'
-import { MenuIcon, CloseIcon } from '../decor/Icons'
+import {
+  MenuIcon,
+  CloseIcon,
+  PinIcon,
+  MailIcon,
+  ShieldIcon,
+  UserCheckIcon,
+  LayersIcon,
+} from '../decor/Icons'
 import { useTab } from '../../context/TabContext'
 
 type IndicatorRect = {
   left: number
   width: number
+}
+
+// One glyph per stage of the product's underlying model — address, the
+// physical object tied to it, verification, the person/business behind it,
+// and the infrastructure layer that connects them. Reused as a persistent
+// motif so moving between tabs reads as one path, not five unrelated slides.
+const STAGE_ICON: Record<(typeof NAV_LINKS)[number]['id'], typeof PinIcon> = {
+  intro: PinIcon,
+  problem: MailIcon,
+  sources: ShieldIcon,
+  impact: UserCheckIcon,
+  contact: LayersIcon,
 }
 
 export default function Header() {
@@ -45,7 +65,7 @@ export default function Header() {
   }, [activeTab])
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 bg-surface/90 shadow-[0_8px_24px_-16px_rgba(8,42,67,0.35)] backdrop-blur-sm">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-line bg-surface/90 backdrop-blur-sm">
       <Container paddingX="22px">
         <div ref={rowRef} className="relative flex h-20 items-center justify-between">
           <button
@@ -64,6 +84,7 @@ export default function Header() {
           >
             {NAV_LINKS.map((link) => {
               const isActive = activeTab === link.id
+              const StageIcon = STAGE_ICON[link.id]
               return (
                 <button
                   key={link.id}
@@ -73,10 +94,14 @@ export default function Header() {
                   type="button"
                   aria-current={isActive ? 'true' : undefined}
                   onClick={() => setActiveTab(link.id)}
-                  className={`text-sm font-bold transition-colors hover:text-brand ${
+                  className={`flex items-center gap-2 pb-1 text-sm font-bold transition-colors hover:text-brand ${
                     isActive ? 'text-brand' : 'text-ink'
                   }`}
                 >
+                  <StageIcon
+                    className={`h-3.5 w-3.5 transition-opacity ${isActive ? 'opacity-100' : 'opacity-40'}`}
+                    strokeWidth={2}
+                  />
                   {link.label}
                 </button>
               )
@@ -101,7 +126,7 @@ export default function Header() {
           {indicator ? (
             <span
               aria-hidden="true"
-              className="pointer-events-none absolute bottom-0 z-10 hidden h-[3px] rounded-full bg-brand shadow-[0_6px_10px_-2px_rgba(47,85,231,0.75)] transition-all duration-300 ease-out lg:block"
+              className="pointer-events-none absolute bottom-0 z-10 hidden h-[2px] rounded-full bg-brand transition-all duration-300 ease-out lg:block"
               style={{ left: indicator.left, width: indicator.width }}
             />
           ) : null}
@@ -120,6 +145,7 @@ export default function Header() {
             >
               {NAV_LINKS.map((link) => {
                 const isActive = activeTab === link.id
+                const StageIcon = STAGE_ICON[link.id]
                 return (
                   <button
                     key={link.id}
@@ -129,10 +155,14 @@ export default function Header() {
                       setActiveTab(link.id)
                       setIsMenuOpen(false)
                     }}
-                    className={`rounded-lg px-2 py-3 text-left text-base font-bold hover:bg-surface ${
+                    className={`flex items-center gap-3 rounded-lg px-2 py-3 text-left text-base font-bold hover:bg-surface ${
                       isActive ? 'text-brand' : 'text-ink'
                     }`}
                   >
+                    <StageIcon
+                      className={`h-4 w-4 flex-shrink-0 ${isActive ? 'opacity-100' : 'opacity-40'}`}
+                      strokeWidth={2}
+                    />
                     {link.label}
                   </button>
                 )

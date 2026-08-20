@@ -1,8 +1,9 @@
 import type { ReactNode } from 'react'
 import Container from '../Container'
 import GlassPanel from '../GlassPanel/GlassPanel'
+import SectionHeading from '../SectionHeading/SectionHeading'
 import InfoCard from '../InfoCard/InfoCard'
-import { ExternalLinkIcon } from '../decor/Icons'
+import { ExternalLinkIcon, ShieldIcon } from '../decor/Icons'
 
 type Citation = {
   source: ReactNode
@@ -373,22 +374,23 @@ const COLUMNS: Citation[][] = [
 export default function EvidenceSources() {
   return (
     <section id="sources" className="relative py-24 sm:py-32">
-      <Container>
-        <GlassPanel shadow={false}>
-        <div className="reveal">
-          <h2 className="text-[clamp(1.9rem,3.6vw,2.75rem)] font-extrabold leading-[1.12] text-brand">
-            Industry Evidence
-          </h2>
-          <p className="mt-7 text-lg font-extrabold leading-relaxed text-ink">
-            The problems described throughout this site are documented by
-            independent government and industry sources. Below, we highlight
-            official reports and public statements that demonstrate their
-            scale and support the need for the infrastructure we are
-            building.
-          </p>
-        </div>
-        </GlassPanel>
+      <Container className="max-w-6xl">
+      <GlassPanel>
+        <SectionHeading
+          icon={ShieldIcon}
+          label="Industry Evidence"
+          title="Documented by Independent Sources"
+        />
+        <p className="reveal mt-7 max-w-2xl text-lg leading-relaxed text-muted">
+          The problems described throughout this site are documented by
+          independent government and industry sources. Below, we highlight
+          official reports and public statements that demonstrate their
+          scale and support the need for the infrastructure we are building.
+        </p>
+      </GlassPanel>
+      </Container>
 
+      <Container>
         <div className="mt-10 flex flex-col gap-6 lg:flex-row">
           {COLUMNS.map((column, columnIndex) => (
             <div key={columnIndex} className="flex flex-1 flex-col gap-6">

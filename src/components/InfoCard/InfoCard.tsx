@@ -13,18 +13,20 @@ type InfoCardProps = {
   padding?: string
 }
 
+// All weights are the same brand blue at different opacities — one accent
+// color throughout, not a family of separate tints.
 const accentColor: Record<AccentWeight, string> = {
   default: 'bg-brand',
   strong: 'bg-ink',
   light: 'bg-accent-light',
-  medium: 'bg-[#b3c0f5]',
+  medium: 'bg-brand/30',
 }
 
 const accentHoverColor: Record<AccentWeight, string> = {
   default: 'group-hover:bg-brand',
   strong: 'group-hover:bg-ink',
   light: 'group-hover:bg-accent-light',
-  medium: 'group-hover:bg-[#b3c0f5]',
+  medium: 'group-hover:bg-brand/30',
 }
 
 export default function InfoCard({
@@ -38,7 +40,7 @@ export default function InfoCard({
 }: InfoCardProps) {
   return (
     <div
-      className={`reveal relative overflow-hidden rounded-xl border border-accent-light bg-surface-alt ${padding} shadow-[0_18px_40px_-24px_rgba(8,42,67,0.35)] ${className}`}
+      className={`reveal relative overflow-hidden rounded-xl border border-line bg-surface-alt ${padding} ${className}`}
     >
       {accent !== 'none' ? (
         <span

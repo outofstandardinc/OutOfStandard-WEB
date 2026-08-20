@@ -6,22 +6,19 @@ export default function Hero() {
   const { setActiveTab } = useTab()
 
   return (
-    <section
-      id="top"
-      className="relative overflow-hidden pt-32 pb-8"
-    >
+    <section id="top" className="relative overflow-hidden pt-24 pb-8 sm:pt-32">
       <Container className="relative z-10">
-        <GlassPanel className="max-w-3xl">
-          <h1 className="text-[clamp(1.575rem,3.45vw,2.7rem)] font-extrabold leading-[1.1] text-brand">
+        <GlassPanel className="max-w-6xl">
+          <h1 className="text-[clamp(2rem,4.4vw,3.4rem)] font-extrabold leading-[1.05] text-brand">
             Infrastructure Layer for Physical and Mailing Address Control
           </h1>
 
           <span
             aria-hidden="true"
-            className="mt-7 block h-[2.8px] w-40 rounded-full bg-brand"
+            className="mt-7 block h-[2px] w-14 rounded-full bg-brand"
           />
 
-          <p className="mt-7 text-lg leading-relaxed text-ink sm:text-xl">
+          <p className="mt-7 text-xl leading-relaxed text-ink">
             Patent-pending{' '}
             <strong className="font-extrabold">next-generation infrastructure</strong>{' '}
             designed to redefine{' '}

@@ -3,7 +3,7 @@ import { COMPANY_NAME, COPYRIGHT_YEAR } from '../../config/siteConfig'
 
 export default function Footer() {
   return (
-    <footer className="fixed inset-x-0 bottom-0 z-50 bg-surface py-3">
+    <footer className="fixed inset-x-0 bottom-0 z-50 border-t border-line bg-surface py-3">
       <Container>
         <p className="text-center text-sm leading-relaxed text-muted">
           © {COPYRIGHT_YEAR} {COMPANY_NAME} All rights reserved. | Patent
