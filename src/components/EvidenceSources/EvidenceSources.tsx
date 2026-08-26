@@ -248,6 +248,23 @@ const EVIDENCE: EvidenceEntry[] = [
       },
     ],
   },
+  {
+    citations: [
+      {
+        source: "America's Credit Unions",
+        logo: '/logos/acu.svg',
+        logoLarge: true,
+        title: 'Your Members Are Moving: Address Change Considerations',
+        locationLabel: '4th paragraph',
+        boldPhrase:
+          'if a credit union receives an address change request and then receives a request for a replacement or additional debit or credit card within a short period (at least 30 days) it must take steps to verify the address change before issuing the card',
+        excerpt: [
+          'Under the rules, if a credit union receives an address change request and then receives a request for a replacement or additional debit or credit card within a short period (at least 30 days) it must take steps to verify the address change before issuing the card, such as notifying the member at the previous address or through another agreed-upon communication method.',
+        ],
+        url: 'https://www.americascreditunions.org/blogs/compliance/your-members-are-moving-address-change-considerations',
+      },
+    ],
+  },
 ]
 
 function renderWithBold(text: string, phrases: string[]): ReactNode {
@@ -359,6 +376,7 @@ const COLUMNS: Citation[][] = [
     findCitation('21-025-R21.pdf'),
   ],
   [
+    findCitation('americascreditunions.org'),
     findCitation('justice.gov'),
     findCitation('bankofamerica.com'),
     findCitation('bostonfed.org'),
