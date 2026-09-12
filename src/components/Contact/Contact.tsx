@@ -17,7 +17,7 @@ export default function Contact() {
 
   return (
     <section id="contact" className="relative py-24 sm:py-32">
-      <Container className="max-w-6xl">
+      <Container className="mx-auto max-w-6xl 2xl:max-w-7xl">
       <GlassPanel>
         <SectionHeading icon={LayersIcon} label="Company" title="About the Company" />
 

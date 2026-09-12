@@ -8,7 +8,7 @@ export default function Hero() {
   return (
     <section id="top" className="relative overflow-hidden pt-24 pb-8 sm:pt-32">
       <Container className="relative z-10">
-        <GlassPanel className="max-w-6xl">
+        <GlassPanel className="mx-auto max-w-6xl 2xl:max-w-7xl">
           <h1 className="text-[clamp(2rem,4.4vw,3.4rem)] font-extrabold leading-[1.05] text-brand">
             Infrastructure Layer for Physical and Mailing Address Control
           </h1>

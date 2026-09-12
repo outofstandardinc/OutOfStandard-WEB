@@ -15,7 +15,7 @@ export default function Problem() {
 
   return (
     <section id="problem" className="relative py-24 sm:py-32">
-      <Container className="max-w-6xl">
+      <Container className="mx-auto max-w-6xl 2xl:max-w-7xl">
       <GlassPanel>
         <SectionHeading
           icon={MailIcon}

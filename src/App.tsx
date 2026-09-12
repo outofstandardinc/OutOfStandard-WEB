@@ -7,7 +7,6 @@ import Problem from './components/Problem/Problem'
 import Impact from './components/Impact/Impact'
 import Contact from './components/Contact/Contact'
 import Footer from './components/Footer/Footer'
-import NextSectionButton from './components/NextSectionButton/NextSectionButton'
 import { TabProvider, useTab } from './context/TabContext'
 import { useRevealAnimations } from './hooks/useRevealAnimations'
 
@@ -109,11 +108,8 @@ function App() {
     <TabProvider>
       <BackgroundMap />
       <Header />
-      <main className="flex">
-        <div className="min-w-0 flex-1">
-          <ActivePanel />
-        </div>
-        <NextSectionButton />
+      <main>
+        <ActivePanel />
       </main>
       <Footer />
     </TabProvider>

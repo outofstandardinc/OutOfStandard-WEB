@@ -28,6 +28,23 @@ const EVIDENCE: EvidenceEntry[] = [
   {
     citations: [
       {
+        source: 'U.S. Postal Service (USPS)',
+        logo: '/logos/usps.svg',
+        logoLarge: true,
+        docType: 'PostalPro',
+        title: 'August 2026 Nixie Volume',
+        locationLabel: 'Total Nixie Volume',
+        boldPhrase: ['Undeliverable-as-Addressed', '82,359,903'],
+        excerpt: [
+          'Undeliverable-as-Addressed in August 2026 — Total Nixie Volume: 82,359,903',
+        ],
+        url: 'https://postalpro.usps.com/Aug2026_NixieVolume',
+      },
+    ],
+  },
+  {
+    citations: [
+      {
         source: 'Reuters',
         logo: '/logos/reuters.svg',
         logoLarge: true,
@@ -368,6 +385,7 @@ function findCitation(urlPart: string): Citation {
 
 const COLUMNS: Citation[][] = [
   [
+    findCitation('Aug2026_NixieVolume'),
     findCitation('reuters.com'),
     findCitation('fbi.gov'),
     findCitation('ftc.gov'),
@@ -392,7 +410,7 @@ const COLUMNS: Citation[][] = [
 export default function EvidenceSources() {
   return (
     <section id="sources" className="relative py-24 sm:py-32">
-      <Container className="max-w-6xl">
+      <Container className="mx-auto max-w-6xl 2xl:max-w-7xl">
       <GlassPanel>
         <SectionHeading
           icon={ShieldIcon}

@@ -28,7 +28,7 @@ function BulletList({ items }: { items: string[] }) {
 export default function Impact() {
   return (
     <section id="impact" className="relative py-24 sm:py-32">
-      <Container className="max-w-6xl">
+      <Container className="mx-auto max-w-6xl 2xl:max-w-7xl">
       <GlassPanel>
         <SectionHeading
           icon={UserCheckIcon}
