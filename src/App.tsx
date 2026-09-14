@@ -9,12 +9,17 @@ import Contact from './components/Contact/Contact'
 import Footer from './components/Footer/Footer'
 import { TabProvider, useTab } from './context/TabContext'
 import { useRevealAnimations } from './hooks/useRevealAnimations'
+import { initVisitTracking, trackView } from './analytics'
 
 function ActivePanel() {
   const { activeTab } = useTab()
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
+  }, [activeTab])
+
+  useEffect(() => {
+    trackView(activeTab)
   }, [activeTab])
 
   useRevealAnimations(activeTab)
@@ -45,27 +50,7 @@ function ActivePanel() {
 
 function App() {
   useEffect(() => {
-    const isLocalhost = ['localhost', '127.0.0.1'].includes(
-      window.location.hostname,
-    )
-    if (isLocalhost) return
-
-    const params = new URLSearchParams(window.location.search)
-    if (params.get('notify') === 'off') {
-      localStorage.setItem('notify-muted', '1')
-    } else if (params.get('notify') === 'on') {
-      localStorage.removeItem('notify-muted')
-    }
-
-    if (localStorage.getItem('notify-muted')) return
-    if (sessionStorage.getItem('visit-pinged')) return
-    sessionStorage.setItem('visit-pinged', '1')
-
-    const device = /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent)
-      ? 'Mobile'
-      : 'Desktop'
-    const url = `https://muddy-bar-abd3.outofstandardinc.workers.dev/?device=${device}`
-    fetch(url, { mode: 'no-cors' }).catch(() => {})
+    initVisitTracking()
   }, [])
 
   // Google Analytics: tag every event in this session with a visit_id and
