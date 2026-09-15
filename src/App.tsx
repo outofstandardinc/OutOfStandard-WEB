@@ -9,7 +9,8 @@ import Contact from './components/Contact/Contact'
 import Footer from './components/Footer/Footer'
 import { TabProvider, useTab } from './context/TabContext'
 import { useRevealAnimations } from './hooks/useRevealAnimations'
-import { initVisitTracking, trackView } from './analytics'
+import { initNotifyOptOut, trackView } from './analytics'
+import { NAV_LINKS } from './config/siteConfig'
 
 function ActivePanel() {
   const { activeTab } = useTab()
@@ -19,7 +20,8 @@ function ActivePanel() {
   }, [activeTab])
 
   useEffect(() => {
-    trackView(activeTab)
+    const label = NAV_LINKS.find((link) => link.id === activeTab)?.label ?? activeTab
+    trackView(label)
   }, [activeTab])
 
   useRevealAnimations(activeTab)
@@ -50,7 +52,7 @@ function ActivePanel() {
 
 function App() {
   useEffect(() => {
-    initVisitTracking()
+    initNotifyOptOut()
   }, [])
 
   // Google Analytics: tag every event in this session with a visit_id and
