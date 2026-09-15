@@ -84,8 +84,20 @@ export function initVisitTracking() {
     fetch(url, { mode: 'no-cors', keepalive: true }).catch(() => {})
   }
 
+  // A tab switch fires 'visibilitychange' too, so a brief hide shouldn't
+  // count as leaving. Wait a bit; if the tab comes back before the grace
+  // period elapses, cancel and keep tracking. An actual close/navigation
+  // fires 'pagehide', which sends immediately regardless of this timer.
+  const HIDDEN_GRACE_MS = 5000
+  let hiddenTimer: number | null = null
+
   document.addEventListener('visibilitychange', () => {
-    if (document.visibilityState === 'hidden') sendSummary()
+    if (document.visibilityState === 'hidden') {
+      hiddenTimer = window.setTimeout(sendSummary, HIDDEN_GRACE_MS)
+    } else if (hiddenTimer !== null) {
+      window.clearTimeout(hiddenTimer)
+      hiddenTimer = null
+    }
   })
   window.addEventListener('pagehide', sendSummary)
 }
