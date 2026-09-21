@@ -4,13 +4,16 @@ import SectionHeading from '../SectionHeading/SectionHeading'
 import { UserCheckIcon } from '../decor/Icons'
 
 const ORG_IMPACTS = [
-  'Organizations will gain a tool for verifying the validity and current status of address data in real time. This will help prevent correspondence, bank cards, checks, and important documents from being sent to outdated or invalid addresses.',
-  'Organizations will be able to reduce financial and operational losses associated with fraud, false address information, delivery errors, and ineffective marketing campaigns.',
+  'Verification of the current status of an address relationship',
+  'Continuous monitoring of its status',
+  'Reduced risk of sending cards, checks, documents, and other important correspondence to outdated addresses',
+  'Reduced losses associated with fraud, inaccurate address data, and delivery errors',
 ]
 
 const INDIVIDUAL_IMPACTS = [
-  'Individuals and companies will receive greater protection against the theft of personal data and financial documents caused by delivery errors or correspondence being sent to an address they can no longer access.',
-  'Individuals and companies will be able to prevent the unauthorized use of their addresses across banking, government, insurance, and other systems.',
+  'Ability to prevent unauthorized use of an address',
+  'Ability to terminate address use by already connected parties',
+  'Reduced risk of confidential correspondence and financial documents being sent to an address they can no longer access',
 ]
 
 function BulletList({ items }: { items: string[] }) {
@@ -33,25 +36,30 @@ export default function Impact() {
         <SectionHeading
           icon={UserCheckIcon}
           label="Impact"
-          title="What Our Infrastructure Enables"
+          title="What Our System Enables"
         />
 
         <div className="mt-10 flex flex-col gap-10">
           <div className="reveal">
-            <p className="text-lg font-extrabold leading-relaxed text-ink">
-              Organizations will receive a reliable trust signal confirming
-              whether an individual or company is currently connected to a
-              claimed address. They will also be able to receive real-time
-              notifications when that connection ends.
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-muted">
+              For Organizations
+            </p>
+            <p className="mt-3 text-lg font-extrabold leading-relaxed text-ink">
+              Organizations receive a reliable signal indicating whether a
+              verified relationship between a subject and a declared address
+              remains valid, and can also receive real-time notification
+              when that relationship ends.
             </p>
             <BulletList items={ORG_IMPACTS} />
           </div>
 
           <div className="reveal">
-            <p className="text-lg font-extrabold leading-relaxed text-ink">
-              Individuals and companies will gain control over who can use
-              their address data and will be able to prevent its
-              unauthorized use.
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-muted">
+              For Individuals
+            </p>
+            <p className="mt-3 text-lg font-extrabold leading-relaxed text-ink">
+              People gain greater control over how their address data is
+              used.
             </p>
             <BulletList items={INDIVIDUAL_IMPACTS} />
           </div>
@@ -65,14 +73,15 @@ export default function Impact() {
           </p>
           <div className="mt-5 flex flex-col gap-5 text-lg font-extrabold leading-relaxed text-ink">
             <p>
-              Our long-term goal is to strengthen national security and
-              become the federal standard for the verification, accuracy,
-              and security of address data in the United States.
+              Our long-term goal is to establish the system as a nationally
+              recognized standard for managing address relationships, with
+              the potential for eventual adoption as a federal standard.
             </p>
             <p>
-              We aim to build trusted infrastructure that individuals,
-              private organizations, and government institutions can use as
-              a single reliable source of trust for address data.
+              Over time, the system can become a trusted layer used by
+              financial institutions, insurance companies, government
+              agencies, and other organizations that depend on accurate and
+              current address data.
             </p>
           </div>
         </div>

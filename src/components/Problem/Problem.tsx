@@ -5,9 +5,9 @@ import { MailIcon } from '../decor/Icons'
 import { useTab } from '../../context/TabContext'
 
 const SHORTCOMINGS = [
-  'People do not have full control over who uses their address data or how it is used.',
-  'Organizations do not have a reliable way to verify whether a person or company has a legitimate right to use a particular address.',
-  'There is no universal tool that notifies organizations in real time when the connection between an address and a person or company ends.',
+  'People have limited control over who uses their address data and how it is used.',
+  'Organizations lack a reliable way to verify the current relationship between a subject and a declared address.',
+  'Existing systems do not monitor this relationship or notify organizations in real time when it breaks.',
 ]
 
 export default function Problem() {
@@ -20,38 +20,32 @@ export default function Problem() {
         <SectionHeading
           icon={MailIcon}
           label="Problems We Solve"
-          title="A Critical Gap in Address Infrastructure"
+          title="A Critical Gap in Address Trust"
         />
 
         <div className="reveal mt-10 flex flex-col gap-5 text-lg leading-relaxed text-ink">
           <p>
-            The modern address system was originally created for delivering
-            correspondence. Today, however, physical and mailing addresses
-            have become an essential part of identification and interaction
-            between individuals, private organizations, and government
-            institutions.
+            Physical and mailing addresses have become an important part of
+            identification and interaction between individuals, businesses,
+            and government organizations.
           </p>
 
           <p>
             Bank cards, checks, court documents, insurance notices, bills,
-            fines, and other important original documents are sent to
-            physical and mailing addresses. At the same time, the address
-            system itself does{' '}
-            <strong className="font-extrabold">
-              not provide sufficient tools to control and verify
-            </strong>{' '}
-            who currently has access to a specific address.
+            fines, and other important correspondence are routinely sent to
+            physical and mailing addresses. At the same time, organizations
+            that use this data have limited ability to verify whether the
+            relationship between a subject and a declared address remains
+            valid.
           </p>
 
           <p>
             News reports regularly cover incidents involving mail theft,
             fraud, personal data breaches, and unauthorized address use.
-            Collectively, these problems result in{' '}
-            <strong className="font-extrabold">
-              billions of dollars in financial losses
-            </strong>{' '}
-            for governments, banks, insurance companies, businesses, and
-            individuals. Examples and supporting sources are available in{' '}
+            Collectively, these problems create significant financial and
+            operational losses for government entities, financial
+            institutions, insurance companies, businesses, and individuals.
+            Examples and supporting sources are available in{' '}
             <button
               type="button"
               onClick={() => setActiveTab('sources')}
@@ -71,7 +65,7 @@ export default function Problem() {
           {SHORTCOMINGS.map((item) => (
             <li
               key={item}
-              className="text-lg leading-relaxed text-ink"
+              className="font-extrabold text-lg leading-relaxed text-ink"
             >
               {item}
             </li>
@@ -80,38 +74,30 @@ export default function Problem() {
 
         <div className="reveal mt-10 flex flex-col gap-5 text-lg leading-relaxed text-ink">
           <p>
-            As a result, the system enables{' '}
-            <strong className="font-extrabold">
-              fraud, unauthorized address use, database errors, misdirected
-              correspondence, personal data breaches
-            </strong>
-            , and significant operational expenses.
+            As a result, outdated or unreliable address relationships can
+            lead to fraud, unauthorized address use, database errors,
+            misdirected correspondence, personal data breaches, and
+            additional operational costs.
           </p>
 
           <p>
-            A simple example: a person moves or loses access to an address
-            for another reason, but banks, courts, insurance companies, and
-            other important organizations{' '}
-            <strong className="font-extrabold">
-              may not be aware of the change
-            </strong>
-            . They continue sending new bank cards, checks, bills, fines,
-            court notices, and confidential documents to the former address.
+            A simple example: a person moves or otherwise loses access to an
+            address, but banks, courts, insurance companies, and other
+            organizations may continue to treat that address as current and
+            send confidential and sensitive correspondence there.
           </p>
 
           <p>
-            If this correspondence falls into the wrong hands, it may lead
-            to{' '}
-            <strong className="font-extrabold">
-              the theft of money, checks, personal data, or identity
-            </strong>
-            . This is only one of many possible scenarios.
+            If that correspondence reaches the wrong person, it may lead to
+            the theft or misuse of money, checks, personal information, or
+            identity data. And this is only one of many possible scenarios.
           </p>
 
           <p className="font-extrabold text-ink">
-            Our product is designed to address these systemic problems by
-            creating a new infrastructure layer for control, verification,
-            and trust across physical and mailing addresses.
+            Our system is designed to address this gap by verifying address
+            relationships, continuously monitoring their status, and
+            detecting when they break without relying on actions by the
+            declaring party or third-party databases.
           </p>
         </div>
       </GlassPanel>

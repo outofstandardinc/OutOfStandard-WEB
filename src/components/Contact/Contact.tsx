@@ -23,19 +23,19 @@ export default function Contact() {
 
         <div className="reveal mt-10 flex flex-col gap-5 text-lg leading-relaxed text-ink">
           <p>
-            <strong className="font-extrabold">Out Of Standard, Inc.</strong>{' '}
-            is a Delaware corporation.
+            The company is developing a system designed to increase trust in
+            physical and mailing address data.
           </p>
           <p>
-            The company is building a new infrastructure layer to improve
-            the security, accuracy, and trustworthiness of physical and
-            mailing address data.
+            Its primary product is designed to verify and continuously
+            monitor the relationship between a subject and a declared
+            address.
           </p>
           <p>
-            The company is focused on developing and implementing its first
-            product, designed for use by individuals, private organizations,
-            and government institutions without replacing existing postal,
-            legal, or corporate systems.
+            The system is being developed for use by individuals, private
+            organizations, and government agencies and can integrate into
+            existing processes without requiring the replacement of current
+            postal, legal, or corporate systems.
           </p>
         </div>
       </GlassPanel>
@@ -51,15 +51,8 @@ export default function Contact() {
           </p>
 
           <InfoCard accent="bottom" className="mt-8 max-w-xl">
-            <p className="text-xl font-extrabold text-brand">
-              Askanaz Melkonyan
-            </p>
-            <p className="mt-1 text-base font-extrabold text-ink">
-              Founder &amp; CEO
-            </p>
-
             {(CONTACT_EMAIL || LINKEDIN_URL) && (
-              <div className="mt-6 flex flex-wrap items-center gap-4">
+              <div className="flex flex-wrap items-center gap-4">
                 {CONTACT_EMAIL ? (
                   <button
                     type="button"
