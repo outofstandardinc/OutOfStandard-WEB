@@ -419,8 +419,9 @@ export default function EvidenceSources() {
         />
         <p className="reveal mt-7 max-w-2xl text-lg leading-relaxed text-muted">
           The problems described throughout this site are documented by
-          independent government and industry sources. Below, we highlight
-          official reports and public statements that demonstrate their
+          independent government and industry sources.
+          <br />
+          Below, we highlight official reports and public statements that demonstrate their
           scale and support the need for the infrastructure we are building.
         </p>
       </GlassPanel>
