@@ -16,28 +16,17 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="relative py-24 sm:py-32">
+    <section id="contact" className="relative pt-[4.8rem] sm:pt-[6.4rem]">
       <Container className="mx-auto max-w-6xl 2xl:max-w-7xl">
       <GlassPanel>
         <SectionHeading icon={LayersIcon} label="Company" title="About the Company" />
 
-        <div className="reveal mt-10 flex flex-col gap-5 text-lg leading-relaxed text-ink">
-          <p>
-            The company is developing a system designed to increase trust in
-            physical and mailing address data.
-          </p>
-          <p>
-            Its primary product is designed to verify and continuously
-            monitor the relationship between a subject and a declared
-            address.
-          </p>
-          <p>
-            The system is being developed for use by individuals, private
-            organizations, and government agencies and can integrate into
-            existing processes without requiring the replacement of current
-            postal, legal, or corporate systems.
-          </p>
-        </div>
+        <p className="reveal mt-10 text-lg leading-relaxed text-ink">
+          <strong className="font-extrabold">Out Of Standard, Inc.</strong> is
+          developing <strong className="font-extrabold">Key2Address</strong>{' '}
+          as its primary product — a system designed to increase trust in
+          physical and mailing address data.
+        </p>
       </GlassPanel>
 
       <GlassPanel className="mt-8">

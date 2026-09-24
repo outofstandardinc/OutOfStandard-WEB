@@ -1,4 +1,4 @@
-import type { ComponentType } from 'react'
+import type { ComponentType, ReactNode } from 'react'
 
 type IconProps = {
   className?: string
@@ -8,7 +8,7 @@ type IconProps = {
 type SectionHeadingProps = {
   icon: ComponentType<IconProps>
   label: string
-  title: string
+  title: ReactNode
 }
 
 // Replaces the old "floating glass card per tab" pattern. The kicker icon

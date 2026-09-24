@@ -1,7 +1,7 @@
 export const COMPANY_NAME = 'Out Of Standard, Inc.'
 
 // Leave empty until real values are available. Empty values are hidden in the UI rather than rendered blank.
-export const CONTACT_EMAIL = 'outofstandardinc@gmail.com'
+export const CONTACT_EMAIL = 'contact@oostandard.com'
 
 export const LINKEDIN_URL = ''
 

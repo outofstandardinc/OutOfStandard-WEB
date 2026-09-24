@@ -14,7 +14,7 @@ export default function Problem() {
   const { setActiveTab } = useTab()
 
   return (
-    <section id="problem" className="relative py-24 sm:py-32">
+    <section id="problem" className="relative pt-[4.8rem] pb-24 sm:pt-[6.4rem] sm:pb-32">
       <Container className="mx-auto max-w-6xl 2xl:max-w-7xl">
       <GlassPanel>
         <SectionHeading
@@ -94,7 +94,7 @@ export default function Problem() {
           </p>
 
           <p className="font-extrabold text-ink">
-            Our system is designed to address this gap by verifying address
+            Key2Address is designed to address this gap by verifying address
             relationships, continuously monitoring their status, and
             detecting when they break without relying on actions by the
             declaring party or third-party databases.

@@ -409,7 +409,7 @@ const COLUMNS: Citation[][] = [
 
 export default function EvidenceSources() {
   return (
-    <section id="sources" className="relative py-24 sm:py-32">
+    <section id="sources" className="relative pt-[4.8rem] pb-24 sm:pt-[6.4rem] sm:pb-32">
       <Container className="mx-auto max-w-6xl 2xl:max-w-7xl">
       <GlassPanel>
         <SectionHeading

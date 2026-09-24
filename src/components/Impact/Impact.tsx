@@ -1,6 +1,7 @@
 import Container from '../Container'
 import GlassPanel from '../GlassPanel/GlassPanel'
 import SectionHeading from '../SectionHeading/SectionHeading'
+import Key2Address from '../Key2Address/Key2Address'
 import { UserCheckIcon } from '../decor/Icons'
 
 const ORG_IMPACTS = [
@@ -30,13 +31,17 @@ function BulletList({ items }: { items: string[] }) {
 
 export default function Impact() {
   return (
-    <section id="impact" className="relative py-24 sm:py-32">
+    <section id="impact" className="relative pt-[4.8rem] pb-24 sm:pt-[6.4rem] sm:pb-32">
       <Container className="mx-auto max-w-6xl 2xl:max-w-7xl">
       <GlassPanel>
         <SectionHeading
           icon={UserCheckIcon}
           label="Impact"
-          title="What Our System Enables"
+          title={
+            <>
+              What <Key2Address /> Enables
+            </>
+          }
         />
 
         <div className="mt-10 flex flex-col gap-10">
@@ -73,12 +78,12 @@ export default function Impact() {
           </p>
           <div className="mt-5 flex flex-col gap-5 text-lg font-extrabold leading-relaxed text-ink">
             <p>
-              Our long-term goal is to establish the system as a nationally
+              Our long-term goal is to establish Key2Address as a nationally
               recognized standard for managing address relationships, with
               the potential for eventual adoption as a federal standard.
             </p>
             <p>
-              Over time, the system can become a trusted layer used by
+              Over time, Key2Address can become a trusted layer used by
               financial institutions, insurance companies, government
               agencies, and other organizations that depend on accurate and
               current address data.
