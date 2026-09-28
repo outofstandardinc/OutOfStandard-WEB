@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import Header from './components/Header/Header'
 import Hero from './components/Hero/Hero'
 import BackgroundMap from './components/BackgroundMap/BackgroundMap'
@@ -19,7 +19,10 @@ function ActivePanel() {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }, [activeTab])
 
+  const lastTab = useRef(activeTab)
   useEffect(() => {
+    if (lastTab.current === activeTab) return
+    lastTab.current = activeTab
     const label = NAV_LINKS.find((link) => link.id === activeTab)?.label ?? activeTab
     trackView(label)
   }, [activeTab])
