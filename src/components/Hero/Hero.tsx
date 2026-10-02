@@ -12,7 +12,21 @@ export default function Hero() {
         <GlassPanel className="mx-auto max-w-6xl 2xl:max-w-7xl">
           <div className="inline-block max-w-full">
             <h1 className="text-[clamp(2.6rem,6vw,4.6rem)] font-extrabold leading-[1.05] text-brand">
-              <Key2Address />
+              <a
+                href="https://key2address.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Key2Address.com"
+                className="group inline-flex items-baseline hover:no-underline"
+              >
+                <Key2Address />
+                <span
+                  aria-hidden="true"
+                  className="opacity-0 transition-opacity duration-200 group-hover:opacity-100"
+                >
+                  .com
+                </span>
+              </a>
             </h1>
             <span
               aria-hidden="true"

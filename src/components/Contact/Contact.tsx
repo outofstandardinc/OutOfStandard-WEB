@@ -27,6 +27,15 @@ export default function Contact() {
           as its primary product — a system designed to increase trust in
           physical and mailing address data.
         </p>
+
+        <a
+          href="https://key2address.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="reveal mt-3 inline-block text-lg font-semibold text-brand underline underline-offset-2 hover:text-brand-dark"
+        >
+          Key2Address.com
+        </a>
       </GlassPanel>
 
       <GlassPanel className="mt-8">
