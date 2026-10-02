@@ -3,7 +3,7 @@ import Container from '../Container'
 import GlassPanel from '../GlassPanel/GlassPanel'
 import SectionHeading from '../SectionHeading/SectionHeading'
 import InfoCard from '../InfoCard/InfoCard'
-import { MailIcon, LinkedInIcon, CheckIcon, LayersIcon } from '../decor/Icons'
+import { MailIcon, LinkedInIcon, CheckIcon, LayersIcon, ExternalLinkIcon } from '../decor/Icons'
 import { CONTACT_EMAIL, LINKEDIN_URL } from '../../config/siteConfig'
 
 export default function Contact() {
@@ -32,8 +32,9 @@ export default function Contact() {
           href="https://key2address.com"
           target="_blank"
           rel="noopener noreferrer"
-          className="reveal mt-3 inline-block text-lg font-semibold text-brand underline underline-offset-2 hover:text-brand-dark"
+          className="reveal mt-3 inline-flex items-center gap-1.5 text-lg font-semibold text-brand underline underline-offset-2 hover:text-brand-dark"
         >
+          <ExternalLinkIcon className="h-4 w-4 flex-shrink-0" strokeWidth={2.2} />
           Key2Address.com
         </a>
       </GlassPanel>
