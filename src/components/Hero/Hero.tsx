@@ -17,12 +17,12 @@ export default function Hero() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Key2Address.com"
-                className="group inline-flex items-baseline hover:no-underline"
+                className="group inline-flex items-baseline underline-offset-4 hover:underline"
               >
                 <Key2Address />
                 <span
                   aria-hidden="true"
-                  className="opacity-0 transition-opacity duration-200 group-hover:opacity-100"
+                  className="text-[0.5em] opacity-0 transition-opacity duration-200 group-hover:opacity-100"
                 >
                   .com
                 </span>
