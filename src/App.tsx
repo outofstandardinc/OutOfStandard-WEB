@@ -67,7 +67,10 @@ function App() {
 
     let visitId = sessionStorage.getItem('ga-visit-id')
     if (!visitId) {
-      visitId = crypto.randomUUID()
+      visitId =
+        typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function'
+          ? crypto.randomUUID()
+          : `${Date.now()}-${Math.random().toString(36).slice(2)}`
       sessionStorage.setItem('ga-visit-id', visitId)
     }
     gtag('set', 'user_properties', { visit_id: visitId })
