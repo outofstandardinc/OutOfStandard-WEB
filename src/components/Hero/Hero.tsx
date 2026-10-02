@@ -17,6 +17,7 @@ export default function Hero() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Key2Address.com"
+                className="inline-block transition duration-200 hover:drop-shadow-md focus-visible:drop-shadow-md"
               >
                 <Key2Address />
               </a>
